@@ -2,6 +2,7 @@
 
 This is a simple tool to record your computer screen and camera.
 <img width="199" height="167" alt="image" src="https://github.com/user-attachments/assets/83805618-d908-4d65-a735-311f9a0af8a9" />
+<br>
 
 ## What it can do:
 *   Record **Screen**, **Camera**, or **Both** at the same time.
