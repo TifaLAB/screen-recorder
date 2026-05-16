@@ -2,8 +2,6 @@
 
 This is a simple tool to record your computer screen and camera.
 
-## for windows 
-https://github.com/TifaLAB/screen-recorder/raw/refs/heads/main/dist/TifaLAB_Recorder.exe
 ## What it can do:
 *   Record **Screen**, **Camera**, or **Both** at the same time.
 *   Choose video quality (like **1080p** or **720p**).
