@@ -49,6 +49,13 @@ If you want to make a file that you can send to friends so they can run it witho
 
 3.  After it finishes, look in the **`dist`** folder. Your file is there!
 
+### ⚠️ Note for Windows Users:
+When you run the `.exe` for the first time, Windows might show a blue box saying **"Windows protected your PC"**.
+Don't worry! This is normal for apps you build yourself. 
+To run it:
+1.  Click **"More info"**.
+2.  Click **"Run anyway"**.
+
 ---
 
 ## Files in this folder:
