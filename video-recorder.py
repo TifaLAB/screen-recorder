@@ -7,6 +7,7 @@ import threading
 import time
 import os
 import sys
+import shutil
 from datetime import datetime
 
 def resource_path(relative_path):
@@ -277,12 +278,20 @@ class ScreenRecorder:
             for _ in range(5):
                 try:
                     if os.path.exists(file_path): os.remove(file_path)
-                    os.rename(temp_name, file_path)
+                    shutil.move(temp_name, file_path)
                     messagebox.showinfo("Success", "Saved!")
                     return
-                except PermissionError:
+                except (PermissionError, OSError) as e:
+                    # On Windows, winerror 17 is "The system cannot move the file to a different disk drive"
+                    # shutil.move should handle this, but if we still get errors, we retry a few times (except for cross-drive if it persists)
+                    win_err = getattr(e, 'winerror', None)
+                    if win_err == 17: 
+                        # This shouldn't happen with shutil.move, but if it does, retrying won't help
+                        break
+                    
+                    # For other errors like PermissionError (file busy), retry
                     time.sleep(0.5)
-            messagebox.showerror("Error", "File is busy. Please try again or check the temp file.")
+            messagebox.showerror("Error", f"Could not save file: {e}")
         else:
             # User cancelled, delete temp
             if os.path.exists(temp_name):
